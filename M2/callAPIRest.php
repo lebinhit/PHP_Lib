@@ -14,10 +14,10 @@ function urlEncodeAsZend($value)
     return $encoded;
 }
 // REPLACE WITH YOUR ACTUAL DATA OBTAINED WHILE CREATING NEW INTEGRATION
-$consumerKey = '4098nnmbsb3gwap9cndf3ayp1mol6rcr';
-$consumerSecret = 'ehg5v8b1ojeqxle6pl5viri3l38cj6x4';
-$accessToken = 'bdj7fs4xn9ldavjk3n9wfkpn8o38ctqw';
-$accessTokenSecret = '8geh3cxudqlo8gk6gjxy7g12iwyxpw7y';
+$consumerKey = 'f3ayp1mol6rcr';
+$consumerSecret = 'ehg5v8b1ojeqxle6pl5';
+$accessToken = 'bdj7fs4xn9ldavjk3n9wf';
+$accessTokenSecret = '6gjxy7g12iwyxpw7y';
 $method = 'GET';
 $url = 'https://www.yourweb.com/index.php/rest/V1/godatafeed/getproduct/id/18693';
 $url = 'https://www.yourweb.com/index.php/rest/default/V1/godatafeed/products';

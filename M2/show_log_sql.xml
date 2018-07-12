@@ -1,0 +1,10 @@
+<!--Change file: etc/di.xml-->
+
+<!-- <preference for="Magento\Framework\DB\LoggerInterface" type="Magento\Framework\DB\Logger\Quiet"/>-->
+<preference for="Magento\Framework\DB\LoggerInterface" type="Magento\Framework\DB\Logger\File"/>
+<type name="Magento\Framework\DB\Logger\File">
+<arguments>
+    <argument name="logAllQueries" xsi:type="boolean">true</argument>
+    <argument name="debugFile" xsi:type="string">debug/db.log</argument>
+</arguments>
+</type>
