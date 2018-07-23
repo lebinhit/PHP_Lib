@@ -1,0 +1,6 @@
+1) Setup module fastly:
+https://devdocs.magento.com/guides/v2.2/cloud/access-acct/fastly.html
+2) Get key fastly: fastly apply only stage and pr
+ SSH to server cloud and open file: /mnt/shared/fastly_tooductionkens.txt
+3) Seting fastly at: Stores > Settings > Configuration > Advanced > System -> Full Page Cache.
+3) Create a CNAME of domain stage and production to: prod.magentocloud.map.fastly.net
