@@ -7,7 +7,7 @@ Or add config in app/etc/env.php
 array (
 0 =>
 array (
-'host' => '172.18.80.10',
+'host' => 'xx.xx.xx.xx',
 'port' => '6081',
 )
 ),
