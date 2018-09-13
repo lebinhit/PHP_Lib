@@ -44,6 +44,8 @@ $result = curl_exec($curl);
 curl_close($curl);
 var_dump($result);
 
+?>
+
 
 Or use:
 
