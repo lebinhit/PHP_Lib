@@ -1,0 +1,26 @@
+Setup Fastly:
+
+1)
+Domain: [name].global.ssl.fastly.net
+Address: IP Address for Origin server
+Verify certificate : No
+=> Next
+
+2)
+- Contact SATA : add domain alias
+
+3) Config on manage.fastly.com
+- Disable GZIP on Fastly
+- Get Service ID :
+Go to Configure tab (on top menu) : Click Show Service ID
+- Get Token :
+Go to Account page: Personal API tokens : Create new token
+
+4) Go to Magento Admin
+- Replace domain to [name].global.ssl.fastly.net
+- Fill all info
+- use features "Verify SSL"
+- use the Fastly Module to upload VCL
+
+
+See detail at: http://www.forixkb.com/knowledge-base/forix-speed-package/

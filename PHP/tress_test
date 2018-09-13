@@ -1,0 +1,3 @@
+Using chef stage:  siege -c100 -r2 your_domain
+
+https://linux.die.net/man/1/siege

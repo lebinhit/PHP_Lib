@@ -43,3 +43,14 @@ curl_setopt_array($curl, [
 $result = curl_exec($curl);
 curl_close($curl);
 var_dump($result);
+
+
+Or use:
+
+###REST API
+#Obtain REST token
+curl -X POST "https://domain/index.php/rest/V1/integration/admin/token" -H "Content-Type:application/json" -d '{"username":"", "password":""}'
+#Get Customer Info
+curl -X GET "https://domain/index.php/rest/V1/customers/2764" -H "Authorization: Bearer p8k4hhn1upq5byn5j37ej6wa8cwq6nbd"
+#Create shipment
+curl -X POST "https://domain/index.php/rest/V1/shipment" -H "Content-Type:application/json" -H "Authorization: Bearer p8k4hhn1upq5byn5j37ej6wa8cwq6nbd" -d '{"entity": {"order_id": 116}}'
