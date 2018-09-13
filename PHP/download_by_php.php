@@ -3,11 +3,9 @@
 // File to download.
 $filepath = '/home/file/public_html/var/support/';
 
-// Maximum size of chunks (in bytes).
-$maxRead = 1 * 1024 * 1024; // 1MB
 
 // Give a nice name to your download.
-$filename = 'not_file.txt';
+$filename = 'no_file.txt';
 if(isset($_GET['code'])){
     $filename = 'file1.tar.gz';
 }elseif(isset($_GET['db'])){
@@ -26,5 +24,40 @@ header("Content-Disposition: attachment; filename=\"".$filename."\"");
 header("Content-Transfer-Encoding: binary");
 header("Content-Length: ".filesize($filepath.$filename));
 ob_end_flush();
-@readfile($filepath.$filename);
+readfile_chunked($filepath.$filename);
+
+
+
+
+// Read a file and display its content chunk by chunk
+function readfile_chunked($filename, $retbytes = TRUE) {
+    // Maximum size of chunks (in bytes).
+    $maxRead = 1 * 1024 * 1024; // 1MB
+    $buffer = '';
+    $cnt    = 0;
+    $handle = fopen($filename, 'rb');
+
+    if ($handle === false) {
+        return false;
+    }
+
+    while (!feof($handle)) {
+        $buffer = fread($handle, $maxRead);
+        echo $buffer;
+        ob_flush();
+        flush();
+
+        if ($retbytes) {
+            $cnt += strlen($buffer);
+        }
+    }
+
+    $status = fclose($handle);
+
+    if ($retbytes && $status) {
+        return $cnt; // return num. bytes delivered like readfile() does.
+    }
+
+    return $status;
+}
 

@@ -1,0 +1,6 @@
+AuthUserFile "/path/.htpasswd"
+AuthType Basic
+AuthName "Limit area"
+<Files "download.php">
+    Require valid-user
+</Files>
