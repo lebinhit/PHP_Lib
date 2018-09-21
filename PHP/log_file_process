@@ -1,0 +1,1 @@
+Mage::log(print_r(get_included_files(),true));
