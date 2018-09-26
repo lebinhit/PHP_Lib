@@ -9,3 +9,12 @@ array (
 'port' => '6081',
 )
 ),
+
+
+
+Varnish cache don't work for menu
+vendor/magento/module-theme/view/frontend/layout/default.xml
+remove the ttl="3600" Or in Megamenu
+
+https://github.com/magento/magento2/issues/3421
+https://github.com/magento/magento2/issues/3897
