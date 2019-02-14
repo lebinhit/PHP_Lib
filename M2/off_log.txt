@@ -1,0 +1,18 @@
+https://devdocs.magento.com/guides/v2.2/config-guide/cli/logging.html
+
+Turn off the Monolog\Logger:
+In app/etc/env.php
+
+'system' =>
+  array (
+      'default' =>
+          array (
+              'dev' =>
+                  array (
+                      'debug' =>
+                          array (
+                              'debug_logging' => '0',
+                          ),
+                  ),
+          ),
+  ),

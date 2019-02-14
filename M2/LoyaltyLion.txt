@@ -1,0 +1,5 @@
+1) Install extension:https://marketplace.magento.com/loyaltylion-core.html#product.info.details.release_notes
+2) Register at: https://app.loyaltylion.com/signup
+3) Login and Add site: https://app.loyaltylion.com/account
+
+Check ticket: SO-14148
