@@ -3,3 +3,4 @@
 3) Login and Add site: https://app.loyaltylion.com/account
 
 Check ticket: SO-14148
+Account test: johnny@forixwebdesign.com

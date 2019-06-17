@@ -1,5 +1,5 @@
 <?php
-$password = 'forixadmin!123';
+$password = 'cG9gzbTTYy87ps8G2';
 echo "md5 pass: ".md5($password); //md5 hash
 echo "sh1 pass: ".$salt=sha1($password); //sh1 hash
 echo "magento pass: ". md5($salt.$password).":".$salt; //magento hash  with salt

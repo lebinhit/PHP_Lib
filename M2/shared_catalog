@@ -1,0 +1,10 @@
+- Sau khi save thì sẽ tạo queue trong queue_message và tạo 1 bulk action log trong magento_bulk
+- Hệ thống sẽ có cron để chạy các lệnh trong queue_message và update trạng thái cho magento_bulk nếu chạy thành công sẽ lưu một record vào table: magento_operation
+- queue_message sẽ bị xóa sau một thời gian
+- magento_bulk cũng sẽ bị xóa trong 60 ngày
+
+queue_message cần phải set cront đẻ chạy, xem chi tiết tại
+https://devdocs.magento.com/guides/v2.2/config-guide/mq/manage-mysql.html
+
+Sử dụng magento.env.yaml để cấu hình trong cron.
+https://devdocs.magento.com/guides/v2.3/cloud/env/variables-deploy.html

@@ -1,0 +1,93 @@
+grep -i "abc" file_name
+grep -r "abc" folder_name
+find folder_path -name file_name
+find html/vendor/ -type f -name "*.php" -newermt 2017-09-07 : find newest file
+find pub/media/catalog/product/  -type f -name "*.jpg" -newermt 2018-03-04 -delete : Find and delete
+tar -cvf <tên-file-nén.tar> <file1 hoặc file2 ...>  tạo file nén (.tar) từ các file có sẵn.
+tar -tvf <tên-file-nén.tar>  xem nội dung file nén (.tar)
+tar -xvf <tên-file-nén.tar>  giải nén (file .tar)
+gzip <tên file>  tạo file nén (.gz). Sử dụng  gzip -d <tên file>  để giải nén (file .gz).
+unzip <file-nén.zip>  giải nén một file nén (.zip). Sử dụng  unzip -l <file-nén.zip>  để xem nội dung file zip mà không cần giải nén.
+
+
+---------------------------------Git----------------------
+git reset --hard 9f2f23e6bbe0e771764c4023b68297b964821599
+git push -f
+
+git reset --hard HEAD^ # Use --hard if you don't care about keeping your changes.
+
+
+https://backlog.com/git-tutorial/vn/stepup/stepup7_3.html
+-------------------------------- DEBUG ----------
+
+ob_start();
+
+        echo '<pre>';
+
+        debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+
+        echo '</pre>';
+
+        $trace = ob_get_contents();
+
+        ob_end_clean();
+
+        echo $trace;
+
+        die(__FILE__ . ' - ' . __LINE__);
+
+--------------------------------- Step by step upgrade magento 2 core ---------------------
+
+0: backup config file, Import database to MySql server.
+
+1: Edit file .gitmodules On the “files” folder, check submodules version.
+
+2: git submodule update --remote --force
+
+3: cd html
+
+4: git checkout .
+
+5: git clean -df
+
+6: Copy new media to Magento_Media folder on custom folder to use it with modman
+
+--- $ cp -rf pub/media/* ../custom/Magento_Media/pub/media
+
+7: Create .modman folder and create symlinks
+
+--- $ ln -s ../custom .modman
+
+--- $ modman repair --force
+
+8: chmod +x bin/magento //Permission magento
+
+9: Check magento version before next step: ./bin/magento -V
+
+
+-----------------------------------Magento 2----------------------------
+mysqldump -u user_name -p --single-transaction database_name | gzip > database_live.sql.gz
+bin/magento setup:static-content:deploy
+php bin/magento maintenance:enable
+php bin/magento maintenance:disable
+
+php bin/magento maintenance:enable &&  rm -Rf var/view_preprocessed/ pub/static/_cache/ pub/static/frontend/Forix/ pub/static/_requirejs/frontend/Forix/ var/view_preprocessed/ && php bin/magento setup:static-content:deploy && php bin/magento maintenance:disable
+
+-----------------------------------Magento Cloud -------------------------
+git commit --allow-empty -m "redeploy" && git push
+
+----------------------------------Magento Account ------------------------
+
+Magento Key CE:
+
+Public Key:8d20aca02708d3279d86f7c6414e70e9
+
+Private Key:7dbe8dcbcac969503309e215599dddac
+
+
+
+Magento key EE:
+
+Public Key:bedb9ffe609b0bc6c36c4866ccc87c05
+
+Private Key:abe2fe3b679276a9c79ce65a065eef8f

@@ -23,3 +23,49 @@
     /* ]]> */
 </script>
 <!-- END Google Code for eCommerce  -->
+
+
+
+
+OR with GTM
+
+<script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+        'event' : 'transactionComplete',
+        'eventLabel' : 'Transaction Complete <?php echo $block->getOrderId() ?>',
+        'ecommerce': {
+            'purchase': {
+                'actionField': {
+                    'id': '<?php echo $block->getOrderId() ?>',
+                    'revenue': '<?php echo $order->getGrandTotal(); ?>',
+                    'affiliation': 'Online Store'
+                },
+                'products': [
+                    <?php foreach($items as $item): ?>
+                    <?php $product = $item->getProduct(); ?>
+                    {
+                        'name': '<?php echo $product->getName(); ?>',
+                        'id': '<?php echo $product->getSku(); ?>',
+                        'price': '<?php echo $item->getPriceInclTax() ?>',
+                        'quantity': '<?php echo $item->getQtyOrdered() ?>',
+                        'brand': '<?php
+                            $categoryIds = $product->getCategoryIds();
+                            if($categoryIds) {
+                                $categories = $orderHelper->getCategoryCollection()
+                                    ->addAttributeToFilter('entity_id', $categoryIds);
+                                $i = 0;
+                                foreach ($categories as $category) {
+                                    if ($i == 0) {
+                                        $i++;
+                                        echo $category->getName();
+                                    }
+                                }
+                            } ?>',
+                    },
+                    <?php endforeach; ?>
+                ]
+            }
+        }
+    });
+</script>

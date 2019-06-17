@@ -10,4 +10,7 @@ $state->setAreaCode('base');
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $config = $objectManager->create('Magento\Framework\App\Config\ScopeConfigInterface');
 echo $config->getValue('carriers/shipper/api_key').'<br/>';
-echo $config->getValue('carriers/shipper/password');
+$pass = $config->getValue('carriers/shipper/password');
+
+$_encryptor = $objectManager->create('\Magento\Framework\Encryption\EncryptorInterface');
+$_encryptor->decrypt($pass);

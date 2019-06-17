@@ -1,0 +1,29 @@
+Configuration->Advanced Reporting
+-> Disable
+-> Clear cache
+-> Enable
+-> Clear cache
+-> Run cron below
+-> Wait data sync 5-10m
+
+Run cron
+
+<?php
+use \Magento\Framework\App\Bootstrap;
+
+require  __DIR__ . '/../../../html/app/bootstrap.php';
+
+$bootstrap = Bootstrap::create(BP, $_SERVER);
+$objectManager = $bootstrap->getObjectManager();
+$state = $objectManager->get('\Magento\Framework\App\State');
+
+$state->setAreaCode('adminhtml');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$customer = $objectManager->create('\Magento\Analytics\Cron\SignUp');
+$customer->execute();
+$customer = $objectManager->create('\Magento\Analytics\Cron\Update');
+$customer->execute();
+$customer = $objectManager->create('\Magento\Analytics\Cron\CollectData');
+$customer->execute();
+die('ok');

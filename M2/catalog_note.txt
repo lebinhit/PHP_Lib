@@ -1,0 +1,5 @@
+html/vendor/magento/framework/Search/Adapter/Mysql/Adapter.php => su dung mysql
+
+vendor/magento/module-elasticsearch/Elasticsearch5/SearchAdapter/Adapter.php => Su dung Elasticsearch
+
+vendor/magento/framework/Search/Adapter/Mysql/TemporaryStorage.php
