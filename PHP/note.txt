@@ -8,7 +8,11 @@ tar -tvf <tên-file-nén.tar>  xem nội dung file nén (.tar)
 tar -xvf <tên-file-nén.tar>  giải nén (file .tar)
 gzip <tên file>  tạo file nén (.gz). Sử dụng  gzip -d <tên file>  để giải nén (file .gz).
 unzip <file-nén.zip>  giải nén một file nén (.zip). Sử dụng  unzip -l <file-nén.zip>  để xem nội dung file zip mà không cần giải nén.
-
+ls -lhG show list file order GB
+ls -lhSG  show list file order GB sort size
+--------------------------------Modman-----------------
+wget -q --no-check-certificate -O /usr/bin/modman https://raw.githubusercontent.com/colinmollenhour/modman/master/modman
+chmod +x /usr/bin/modman
 
 ---------------------------------Git----------------------
 git reset --hard 9f2f23e6bbe0e771764c4023b68297b964821599
