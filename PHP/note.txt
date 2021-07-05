@@ -1,3 +1,81 @@
+mysqldump --single-transaction -u username -p database_name --triggers | sed -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/' | gzip > database_name_.`date +"%Y%m%d"`.sql.gz
+
+
+
+
+
+
+
+Find file gzip:
+
+ zgrep "2020/04/10" *.gz
+
+ zgrep "2020/04/09" *.gz
+
+grep "2020/04/10" .
+
+grep "2020/04/09"
+
+
+
+
+
+
+
+https://www.section.io/docs/modules/varnish-cache/how-tos/exclude-url-from-cache/
+
+if ( req.url ~ "/(media/searchspring/searchspring-default\.csv|searchspring/feed/generate)" ) {
+
+set req.http.x-pass = "1";
+
+}
+
+
+
+https://support.fastly.com/hc/en-us/community/posts/360040167751-Geoip-Custom-VCL
+
+
+
+
+
+
+
+
+
+
+
+
+grep -i "abc" file_name
+
+grep -r "abc" folder_name
+
+
+
+grep -rnw 'var/log' -e 'pattern'
+
+
+
+awk 'NR >= 57890000 && NR <= 57890010' var/log/exception.log
+
+awk 'NR >= 57890000 && NR <= 57890010' var/log/exception.log
+
+awk 'NR >= 75000 && NR <= 75063' 20210401082122/var/log/system.log-20210404
+
+grep -rnw 20210401082122/var/log/ -e "renderer"
+
+du -hsx * | sort -rh | head -10
+
+ps aux --sort=-%cpu | awk 'NR<=10{print $0}'
+
+
+
+
+
+ps aux | grep php
+
+ps axjf
+
+
 grep -i "abc" file_name
 grep -r "abc" folder_name
 find folder_path -name file_name
